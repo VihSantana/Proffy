@@ -1,0 +1,161 @@
+:root {
+    --color-background: #F0F0F7;
+    --color-primary-lighter: #9871F5;
+    --color-primary-light: #916BEA;
+    --color-primary: #8257E5;
+    --color-primary-dark: #774DD6;
+    --color-primary-darker: #6842c2;
+    --color-secondary: #04D361;
+    --color-secondary-dark: #04BF58;
+    --color-title-in-primary: #FFFFFF;
+    --color-text-in-primary: #D4C2FF;
+    --color-text-title: #32264D;
+    --color-text-complement: #9C98A6;
+    --color-text-base: #6A6180;
+    --color-line-in-white: #E6E6F0;
+    --color-input-background: #F8F8FC;
+    --color-button-text: #FFFFFF;
+    --color-box-base: #FFFFFF;
+    --color-box-footer: #FAFAFC;
+    --color-small-info: #C1BCCC;
+    --color-background-dark: #E5E5E5;
+    
+    /* 
+        controle das medidas rem (relativo ao Root Element, ou seja, será proporcional ao que foi definido no root  )
+    */
+    /* -------UNIDADES DE MEDIDAS-------
+
+        REM: busca a relação direto do ROOT. 
+
+        EM: busca a relação em cascata, até que chegue ao root, para definir o valor final. Ex: se o seu body estiver com o FONT-SIZE = 14px e em uma DIV1 (filha do body) você usar FONT-SIZE = 1.2em, o CSS vai interpretar e aplicar à DIV1 o font-size como 14 * 1.2 = 16.8px. Caso se tenha uma DIV2 (filha da DIV1) e ela estiver definida com FONT-SIZE  = 1.2em, o CSS vai interpretar e aplicar à DIV2 o font-size como 16.8 * 1.2 = 20.16px (e assim por diante, lembrando que essa propagação parte do elemento Pai para o elemento filho).
+
+        VH: Viewport Height (altura da janela de exibição). Caso se queira usar a altura da viewport ao invés da altura do elemento-pai, usa-se a medida VH. VH = 1/100 da altura da viewport. Ex.: se a altura do navegador é 900px, 1vh equivale a 9px;
+
+        VW: Viewport Widht (largura da janela de    exibição). Caso se queira usar a largura da viewport ao invés da largura do elemento-pai, usa-se a medida VW. VW = 1/100 da largura da viewport. Ex.: se a largura do navegador é 750px, 1vh equivale a 7.5px;    
+
+        VMIN, VMAX: referem-se respectivamente ao valor máximo e mínimo das largura e altura da viewport, dependendo de qual é a menor e a maior. Ex.: se o navegador foi ajustado para 1100px de largura e a altura 700px, VMIN seria 7px e VMAX seria 11px. 
+
+        -->não entendiiiiiii<-- EX, CH: As unidades EX e CH, semelhante a EM e REM, contam com a fonte e tamanho da fonte atuais. No entanto, ao contrário de em e rem, essas unidades também contam com FONT-FAMILY como são determinados com base em medidas específicas de cada fonte.
+    */
+
+    font-size: 60%; 
+     /* 
+        tamanho da fonte padrão: 16px - 100% - 1rem 
+        FONT-SIZE = 60% => 16px * 60% = 9.6px
+    */
+}
+
+*{
+    margin: 0;
+   
+    padding: 0;
+   
+    box-sizing: border-box; 
+    /*
+        Por padrão, o border-sizing é content-box (a caixa irá se ajustar so conteúdo da caixa). Vamos utilizar border-box (a caixa será ajustada às dimensões da borda - limite - definido. 
+    
+        Quando usamos o border-box, mesmo que eu defina um preenchimento (padding) e uma borda (border), a caixa vai somar todos os valores e se virar para manter tudo dentro da largura ou altura definidas.
+    */
+}
+
+html{
+    background-color: var(--color-background-dark);
+}
+
+html, body{
+    
+    height: 100vh; 
+    /*
+        Faz com que o elemento ocupe as 100 (das 100)  partes da dimensão atual
+         da viewport, em relação à altura;
+    */
+}
+
+body {
+    /* background-color: var(--color-primary); */
+
+    
+
+    display: flex; 
+    /*
+        Altera o comportamento padrão dos elementos que aplicam a quebra de linha, colocando todos um ao lado do outro 
+    */
+    
+    align-items: center; 
+    /*
+       Alinhamento de Itens: Alinha os elementos de forma centralizada, em relação à altura. Funciona somente se o display do elemento for FLEX ou GRID.
+    */
+    
+    justify-content: center;
+    /*
+        Justifica o conteúdo: Alinha de forma juntificada o conteúdo do elemento, em relação à largura. Funciona somente se o display do elemento for FLEX ou GRID.
+
+         os atributos CONTENT Só funcionam para o [display: flex] e os atributos SELF só funcionam pro [display: grid]
+    */
+
+}
+
+body,
+input,
+button, 
+textarea{
+
+    font: 500 1.6rem Poppins;
+    /*
+        FONT é uma forma abreviada de configurar a  
+            fonte. Aqui configuramos o FONT-WEIGHT: 500 (negrito), o FONT-SIZE: 1.6rem (do font-size definido no root) e o FONT-FAMILY: Poppins; Também podem ser aplicadOs por meio da forma abreviada FONT, os atributos: FONT-STYLE, FONT-STRETCH, LINE-HEIGHT, ....
+    */
+    color: var(--color-text-base);
+
+
+}
+
+ #container{
+   /*  box model*/
+    
+    /*border: 1px solid red; 
+    
+        Borda: limite da caixa. Tem como atributos a largura da borda, o tipo de borda (linha) e a cor da borda. 
+    */
+    
+    /*padding: 40px; 
+    
+        Preenchimento: ocupa dentro da caixa. No modo reduzido, pode-se informar 1 valor (que será adotado aos 4 lados da caixa), 2 valores (o 1º será relativo ao preenchimento a partir da borda superior e da borda inferior e o 2º será relativo ao preenchimento das bordas laterais), 3 valores (o 1º será relativo ao preenchimento a partir da borda superior, o 2º será relativo ao preenchimento das bordas laterais e o 3º será relativo à borda inferior da caixa) e 4 valores (o 1º será relativo ao preenchimento a partir da borda superior, o 2º será relativo ao preenchimento da bordas lateral direita, o 3º será relativo à borda inferior da caixa e o 4º será relativo ao preenchimento da  bordas lateral esquerda - sentido horário). 
+    */
+   
+    /*margin: 60px; 
+    
+        Margem: define espaçamento ao redor externo da caixa.No modo reduzido, pode-se informar 1 valor (que será adotado aos 4 lados da caixa), 2 valores (o 1º será relativo ao espaçamento no sentido da borda superior e da borda inferior e o 2º será relativo ao espaçamento no sentido das bordas laterais), 3 valores (o 1º será relativo ao espaçamento no sentido da borda superior, o 2º será relativo ao espaçamento no sentido das bordas laterais e o 3º será relativo ao espaçamento no sentido borda inferior da caixa) e 4 valores (o 1º será relativo ao espaçamento no sentido da borda superior, o 2º será relativo ao espaçamento no sentido da bordas lateral direita, o 3º será relativo ao espaçamento no sentido borda inferior da caixa e o 4º será relativo ao ao espaçamento no sentido da  bordas lateral esquerda - sentido horário).
+    */
+
+    /*width: 900px; 
+    
+        Largura da caixa: é relativo ao elemento-ancestal mais próximo.
+    */
+   
+    /*height: 300px; 
+    
+        Altura da caixa: é relativo ao elemento-ancestal mais próximo.
+    */
+
+    width: 90vw;
+    /*
+        Faz com que o elemento ocupe as 100 (das 100)  partes da dimensão atual
+         da viewport, em relação à largura;
+    */
+
+    max-width: 700px;
+    /*
+        MAX-WIDTH: Define a largura máxima do elemento, mesmo que a largura total da tela seja superior.
+    */
+}
+
+@media(min-width: 700px){
+    :root{
+        font-size: 62.5%;
+        /* 
+            tamanho da fonte padrão: 16px - 100% - 1rem 
+            FONT-SIZE = 62.5% => 16px * 62.5% = 10px
+        */
+    }
+}

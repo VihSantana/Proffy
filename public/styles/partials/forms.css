@@ -1,0 +1,74 @@
+.input-block,
+.textarea-block {
+    position: relative;
+}
+
+.select-block label,
+.input-block label,
+.textarea-block label{
+    font-size: 1.4rem;
+    color: var(--color-text-complement);
+}
+
+.select-block select,
+.input-block input,
+.textarea-block textarea{
+
+    width: 100%;
+
+    height: 5.6rem;
+    margin-top: 0.8rem;
+    border-radius: 0.8rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-line-in-white);
+    outline: 0;
+    /*
+        Contorno no elemento que indica que ele foi selecionado
+    */
+    padding: 0 1.6rem;
+    font: 1.6rem Archivo;
+}
+
+.textarea-block textarea{
+    padding: 1.2rem 1.6rem;
+    height: 16rem;
+
+    resize: vertical;
+    /*
+        Para que o textarea possa ser alterado somente na vertical
+    */
+}
+
+.input-block:focus-within::after, 
+.textarea-block:focus-within::after{
+    /*
+        focus-within: quando o elemento estiver com o foco (ou seja, for selecionado);
+        ::after: pseudo elemento que será criad pelo CSS no HTML.
+    */
+    content: ""; 
+    /* 
+        Obrigatório na criação de um pseudo elemento (nesse caso o after
+    */
+
+    width: calc(100% - 3.2rem);
+    /*
+        Esse calculo significa que o objeto terá 3.2rem a menos que o total do elemento.
+    */
+    height: 2px;
+
+    background: var(--color-primary-light);
+    position: absolute;
+    /*
+        - O position: absolute é absoluto em relação a determinado elemento.
+        
+        - Por padrão ele é ebsoluto relativo à pagina toda. Para definir que ele seja relativo a determinado elemento, este deve estar configurado com position: relative.
+
+        - Para configurar a disposição do elemento absoluto em relação ao elemento relativo, deve ser utilizados os atributos left, right, bottom, top.
+    */
+    left: 1.6rem;
+    /*
+        Como o elemento foi definido com 3.2rem a menos que o total, ao definir left: 1.6rem o objeto assumirá 1.6re, à direita, fazendo com que o elemento absoluto fique centralizado.
+    */
+    bottom: 0;
+
+}

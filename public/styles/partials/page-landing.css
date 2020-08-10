@@ -1,0 +1,184 @@
+#page-landing{
+    background-color: var(--color-primary);
+}
+
+#page-landing #container{
+    color: var(--color-text-in-primary);
+}
+
+.logo-container img{
+    height: 10rem;
+}
+
+.hero-image{
+    width: 100%;
+}
+
+.logo-container{
+    text-align: center;
+    /*
+        Alinhamento do Texto: essa configuração define o alinhamento do texto dentro da box, em relação à largura. o IMG herda propriedades de texto, por isso também foi alinhada ao centro.
+    */
+    margin-bottom: 3.2rem;
+    /*
+        Inclui uma margem inferior ao elemento de 3.2rem
+    */
+}
+
+.logo-container h2{
+    font-weight: 500;
+    font-size: 3.6rem;
+    line-height: 4.6rem;
+    margin-top: 0.8rem;
+}
+
+.buttons-container{
+    display: flex;
+    /*
+        Apesar dos botões já estarem alinhados lado a lado, foi aplicado o DISPLAY: FLEX para que possamos usar uma propriedade que só funciona se o display for flex: justify-content;
+    */
+    justify-content: center;
+
+    margin: 3.2rem 0;
+}
+
+.buttons-container a{
+    width: 30rem;
+    height: 10.4rem;
+
+    
+    border-radius: 0.8rem;
+    /*
+        Raio da Borda: aplica um arredondado na borda da box.
+        No modo reduzido, pode-se informar 1 valor (que será adotado aos 4 lados da caixa), 2 valores (o 1º será relativo ao espaçamento no sentido da borda superior e da borda inferior e o 2º será relativo ao espaçamento no sentido das bordas laterais), 3 valores (o 1º será relativo ao espaçamento no sentido da borda superior, o 2º será relativo ao espaçamento no sentido das bordas laterais e o 3º será relativo ao espaçamento no sentido borda inferior da caixa) e 4 valores (o 1º será relativo ao espaçamento no sentido da borda superior, o 2º será relativo ao espaçamento no sentido da bordas lateral direita, o 3º será relativo ao espaçamento no sentido borda inferior da caixa e o 4º será relativo ao ao espaçamento no sentido da  bordas lateral esquerda - sentido horário)
+    */
+
+    margin-right: 1.6rem;
+
+    font: 700 2.4rem Archivo;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    color: var(--color-button-text);
+
+    /* property name | duration | -timing function- | -delay- */
+    transition: background 0.2s;
+    /*
+        Transition: é uma forma abreviada de configurar uma transição (animação). Aqui configuramos a propriedade que vai ser afetada pela transição (BACKGROUND) e o tempo de duração da transição (0.2s);Também podem ser aplicados por meio da forma abreviada TRANSITION, os atributos: TIMING FUNCTION (função de tempo) e DELAY (atraso: tempo que demora a iniciar a transição).Caso queira aplicar a mesma configuração de transição a mais de uma propriedade, deverão ser separadas por VÍRGULA.Ex.: transition: margin-left 4s, color 1s; Caso queira que a transição seja aplicada a todas as propriedades, deverá ser usada a propriedade ALL. Ex.: transition: all 0.5s ease-out;(Foi adicionada ao elemento pai para que sempre que a propriedade background-color de QUALQUER UM dos elementos filhos forem alterados, ele seja acionado).
+    */
+}
+
+.buttons-container a img{
+    width: 4rem;
+    margin-right: 2.4rem;
+}
+
+.buttons-container a.study{
+    background-color: var(--color-primary-lighter);
+}
+.buttons-container a.study:hover{
+    background-color: var(--color-primary-light);
+}
+
+.buttons-container a.give-classes{
+    background-color: var(--color-secondary);
+    margin-right: 0;
+}
+
+.buttons-container a.give-classes:hover{
+    background-color: var(--color-secondary-dark);
+}
+
+.total-connections{
+    font-size: 1.8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*
+        os atributos CONTENT Só funcionam para o [display: flex] e os atributos SELF só funcionam pro [display: grid]
+    */
+}
+
+.total-connections img{
+    margin-left: 0.8rem;
+}
+
+@media (max-width: 699px){
+    :root{
+        font-size: 40%;
+        /* 
+            tamanho da fonte definida no root (no main): 1rem = 60% = 9.6px
+            FONT-SIZE = 40% => 16px * 40% = 6,4px
+        */
+    }
+}
+
+
+@media (min-width: 1100px){
+    #page-landing #container{
+        max-width: 1100px;
+        display: grid;
+        grid-template-columns: 2fr 1fr 2fr;
+        /*
+            Define a configuração das colunas do GRID
+            
+            FR: Unidade de medida de fração. Torna a coluna dinâmica, pois o cálculo da largura é feita em tempo de execução, de acordo com a largura do grid.
+        */
+        grid-template-rows: 350px 1fr ;
+
+        grid-template-areas: 
+        "proffy image image"
+        "button button texting";
+
+        /* gap: 86px 87px; */
+
+        column-gap: 87px;
+        row-gap: 86px;
+        /*
+            Espaçamento entre colunas na forma reduzida, com um único valor, contempla tanto coluna quanto linhas
+        */
+    }
+
+    .logo-container{
+        grid-area: proffy;
+        text-align: initial;
+        align-self: center;
+        /*
+            alinha o elemento no centro da coluna (em relação à altura e largura)
+
+            os atributos CONTENT Só funcionam para o [display: flex] e os atributos SELF só funcionam pro [display: grid]
+        */
+        margin: 0;
+    }
+
+    .logo-container img{
+        height: 100%;
+        height: 127px;
+    }
+
+    .hero-image{
+        grid-area: image;
+        height: 350px;
+    }
+
+    .buttons-container{
+        grid-area: button;
+        justify-content: flex-start;
+        /*
+           os atributos CONTENT Só funcionam para o [display: flex] e os atributos SELF só funcionam pro [display: grid]
+        */
+        margin: 0;
+    }
+    
+    .total-connections{
+        grid-area: texting;
+        justify-self: end;
+        /* font-size: 1.2rem; */
+    }
+}
+
